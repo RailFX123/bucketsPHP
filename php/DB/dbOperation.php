@@ -1,7 +1,7 @@
 <?php
 require_once('./php/DB/dbSettings.php');          // Define db configuration arrays here
 require_once('./php/DB/dbCon.php');             // Include this file
-require_once('./php/Functions/cloud.php');
+
 class DbOperations
 {
     private $dataCon;
@@ -14,11 +14,15 @@ class DbOperations
 
     public function  insertInfo($nombre, $apellido, $telefono, $correo, $filepath)
     {    
-        $sqlInsert = "INSERT INTO `empleo_cv`.`empleados` (`nombre`, `apellido`, `telefono`, `correo`, `curriculum`) VALUES ('".$nombre."', '".$apellido."', '".$telefono."', '".$correo."', '".$filepath."');";              // Insert/Update/Delete Statements:
+        $sqlInsert = "INSERT INTO `empleo_cv`.`empleados` (`nombre`, `apellido`, `telefono`, `correo`, `curriculum`) VALUES ('".$nombre."', '".$apellido."', '".$telefono."', '".$correo."', 'https://storage.cloud.google.com/phpstorage/".$filepath."?authuser=1');";              // Insert/Update/Delete Statements:
         $count = $this->dataCon->runQuery($sqlInsert);     // Use this method to run inserts/updates/deletes
-        
         return $count;
     }
+    public function selectEmployeeInfo(){
+        $sqlSelect = "SELECT UPPER(NOMBRE) as nombre,UPPER(APELLIDO) as apellido,TELEFONO,UPPER(CORREO) as correo,CURRICULUM as curriculum FROM EMPLEO_CV.EMPLEADOS";           // Select Statements:
+        $rows = $this->dataCon->getQuery($sqlSelect);
+        return $rows;
+    }
 }
-$dbConn=DbOperations($localhost);
+$dbConn= new DbOperations($localhost);
 ?>

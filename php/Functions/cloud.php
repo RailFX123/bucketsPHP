@@ -31,4 +31,5 @@ class GoogleCloudOperations
         ]);
     }
 }
+$cloud=new GoogleCloudOperations();
 ?>
