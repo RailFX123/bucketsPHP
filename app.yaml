@@ -1,0 +1,19 @@
+# Use the PHP 7.3 runtime (BETA) by replacing "php72" below with "php73"
+runtime: php
+env: flex
+runtime_config:
+  document_root: web
+
+# This sample incurs costs to run on the App Engine flexible environment.
+# The settings below are to reduce costs during testing and are not appropriate
+# for production use. For more information, see:
+# https://cloud.google.com/appengine/docs/flexible/php/configuring-your-app-with-app-yaml
+env_variables:
+  # Replace USER, PASSWORD, DATABASE, and CONNECTION_NAME with the
+  # values obtained when configuring your Cloud SQL instance.
+  CLOUDSQL_USER: "root"
+  CLOUDSQL_PASSWORD: "Asnaeb@123"
+  CLOUDSQL_DSN: "mysql:unix_socket=/cloudsql/optimistic-jet-247613:us-central1:empleo;dbname=empleo_cv"
+  
+beta_settings:
+    cloud_sql_instances: "optimistic-jet-247613:us-central1:empleo"

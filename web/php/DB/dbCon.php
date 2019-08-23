@@ -60,13 +60,13 @@ Class DBConnection {
         // Check if the connection is already established
         if ($this->dbc == NULL) {
             // Create the connection
-            $dsn = "" .
-                $this->_config['driver'] .
-                ":host=" . $this->_config['host'] .
-                ";dbname=" . $this->_config['dbname'];
+            // $dsn = "" .
+            //     $this->_config['driver'] .
+            //     ":host=" . $this->_config['host'] .
+            //     ";dbname=" . $this->_config['dbname'];
 
             try {
-                $this->dbc = new PDO( $dsn, $this->_config[ 'username' ], $this->_config[ 'password' ] );
+                $this->dbc = new PDO( $this->_config['host'], $this->_config[ 'username' ], $this->_config[ 'password' ] );
             } catch( PDOException $e ) {
                 echo __LINE__.$e->getMessage();
             }
@@ -93,9 +93,15 @@ Class DBConnection {
      * @returns associative array
      */
 	public function getQuery( $sql ) {
-		$stmt = $this->dbc->query( $sql );
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
+        try{
+            $stmt = $this->dbc->query( $sql );
+           //if($stmt){
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            //}
+        }catch(PDOException $e){
+            print $e->getMessage();
+            $stmt=array();
+        }
 		return $stmt;
 	}
 

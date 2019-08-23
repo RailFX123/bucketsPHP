@@ -19,7 +19,7 @@ class DbOperations
         return $count;
     }
     public function selectEmployeeInfo(){
-        $sqlSelect = "SELECT UPPER(NOMBRE) as nombre,UPPER(APELLIDO) as apellido,TELEFONO,UPPER(CORREO) as correo,CURRICULUM as curriculum FROM EMPLEO_CV.EMPLEADOS";           // Select Statements:
+        $sqlSelect = "SELECT UPPER(NOMBRE) as nombre,UPPER(APELLIDO) as apellido,TELEFONO,UPPER(CORREO) as correo,CURRICULUM as curriculum FROM empleo_cv.empleados";           // Select Statements:
         $rows = $this->dataCon->getQuery($sqlSelect);
         return $rows;
     }
