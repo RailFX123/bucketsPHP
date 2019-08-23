@@ -23,31 +23,25 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" aria-disabled="true">Ver Usuarios Registrados</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" href="empleados.php">Ver Usuarios Registrados</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+          
         </div>
     </nav>
 
     <div class="container border red">
         <div class="form-row ">
-            <div class="col-lg-12 col-md-3 border purple text-center">
+            <div class="col-lg-12 col-md-6 border purple text-center">
                 <h1>Formulario empleo</h1>
 
             </div>
-            <div class="col-lg-12 col-md-6 col-sm-3 border green">
+            <div class="col-lg-12 col-md-6 col-sm-6 border green">
                 <div class="col-lg-6 col-md-3 mx-auto border orange">
-                    <form class="needs-validated my-1" action="./registrar.php" method="post" autocomplete="on">
+                    <form class="needs-validated my-1" action="./registrar.php" method="post" autocomplete="on" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" name="user[nombre]" id="user[nombre]" aria-describedby="helperName" placeholder="Mauricio" required>
@@ -55,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label for="apellido">Apellido</label>
-                            <input type="text" class="form-control" name="user[appelido]" id="user[apellido]" aria-describedby="helpApellido" placeholder="Contreras" required>
+                            <input type="text" class="form-control" name="user[apellido]" id="user[apellido]" aria-describedby="helpApellido" placeholder="Contreras" required>
                             <small id="helpApellido" class="form-text text-muted">Escriba su apellido :3</small>
                         </div>
                         <div class="form-group">
