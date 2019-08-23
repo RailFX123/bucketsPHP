@@ -6,6 +6,7 @@ use Google\Cloud\Storage\StorageClient;
 class GoogleCloudOperations
 {
     private $storage;
+
     public function __construct()
     {
         $this->storage = new StorageClient(
